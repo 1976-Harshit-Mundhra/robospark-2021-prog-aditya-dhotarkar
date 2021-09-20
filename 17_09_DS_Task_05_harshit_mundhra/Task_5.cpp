@@ -1,47 +1,63 @@
-#include <iostream>
+#include<iostream>
 using namespace std;
 
 class Rectangle
-{
-	public:
-		int length;
-		int breadth;
-		void setter0();
-		void setter1(int n);
-		void setter2(int l,int b);
-		int getArea();
-}rec;
+ {
+    public:
+        int length;
+        int breadth;
+        int getArea();
+        void set1(){
+            length=0;
+            breadth=0;
+        }
+        void set2(int n){
+            length=n;
+            breadth=n;
+        }
+        void set3(int l,int b){
+            length =l;
+            breadth=b;
+        }
+        Rectangle()
+        {
+        length=0;
+        breadth=0;
+        }
+        Rectangle(int n)
+        {
+        length=n;
+        breadth=n;
+        }
+        Rectangle(int l,int b)
+        {
+        length=l;
+        breadth=b;
+        }
+ };
 
-void Rectangle:: setter0(){
-    length=0;
-    breadth=0;
-}
-
-void Rectangle:: setter1(int n){
-    length=n;
-    breadth=n;
-}
-
-void Rectangle::setter2(int l,int b)
-{
-	length = l;
-    breadth = b;
-}
-int Rectangle::getArea()
-{
-	return length * breadth;
+int Rectangle::getArea(){
+    return length*breadth;
 }
 
 int main()
 {
-rec.setter0();
-	int area = rec.getArea();
-	cout << "Area : " << area << endl;
-rec.setter1(5);
-	int area1 = rec.getArea();
-	cout << "Area : " << area1 << endl;
-rec.setter2(7,8);
-	int area2 = rec.getArea();
-	cout << "Area : " << area2 << endl;
+    Rectangle r1;
+    r1.set1();
+    int l;
+	cout<<"Area of Rectangle is "<<r1.getArea()<<endl;
+    cout<<"Enter one dimension to be set as length and breadth: ";
+    cin>>l;
+    Rectangle r2(l);
+    r2.set2(l);
+    int n,m;
+	cout<<"Area: "<<r2.getArea()<<endl;
+    cout<<"Enter the length: ";
+    cin>>m;
+    cout<<"Enter the breadth: ";
+    cin>>n;
+    Rectangle r3(m,n);
+    r3.set3(m,n);
+	cout<< "Area: "<<r3.getArea()<<endl;
 	return 0;
 }
